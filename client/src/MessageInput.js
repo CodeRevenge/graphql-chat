@@ -1,23 +1,25 @@
-import React, { Component } from 'react';
+import React from "react";
 
-class MessageInput extends Component {
-  handleKeyPress(event) {
-    if (event.key === 'Enter') {
-      this.props.onSend(event.target.value);
-      event.target.value = '';
+const MessageInput = ({ onSend }) => {
+  const handleKeyPress = ({ key, target }) => {
+    if (key === "Enter") {
+      onSend(target.value);
+      target.value = "";
     }
-  }
+  };
 
-  render() {
-    return (
-      <div className="box">
-        <p className="control">
-          <input className="input" type="text" placeholder="Say something..."
-            onKeyPress={this.handleKeyPress.bind(this)} />
-        </p>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="box">
+      <p className="control">
+        <input
+          className="input"
+          type="text"
+          placeholder="Say something..."
+          onKeyPress={(e) => handleKeyPress(e)}
+        />
+      </p>
+    </div>
+  );
+};
 
 export default MessageInput;

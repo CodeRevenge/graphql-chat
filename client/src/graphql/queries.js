@@ -1,5 +1,5 @@
-import gql from 'graphql-tag';
-import client from './client';
+import gql from "graphql-tag";
+import client from "./client";
 
 const messagesQuery = gql`
   query MessagesQuery {
@@ -22,14 +22,14 @@ const addMessageMutation = gql`
 `;
 
 export async function addMessage(text) {
-  const {data} = await client.mutate({
+  const { data } = await client.mutate({
     mutation: addMessageMutation,
-    variables: {input: {text}}
+    variables: { input: { text } },
   });
   return data.message;
 }
 
 export async function getMessages() {
-  const {data} = await client.query({query: messagesQuery});
+  const { data } = await client.query({ query: messagesQuery });
   return data.messages;
 }
