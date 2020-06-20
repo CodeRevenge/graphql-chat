@@ -5,33 +5,18 @@
     "text": "Welcome!"
   },
   {
-    "id": "B1f8bY5TL",
-    "from": "alice",
-    "text": "Hello!"
-  },
-  {
-    "id": "ryEdfKqaU",
+    "id": "ByHdcej68",
     "from": "bob",
-    "text": "hi"
+    "text": "Hi guys!"
   },
   {
-    "id": "Skl0Ft5a8",
+    "id": "B1-F9xs6U",
     "from": "alice",
-    "text": "Hey!"
+    "text": "Hey Bob!"
   },
   {
-    "id": "Sk_P5K5pI",
-    "from": "alice",
-    "text": "Hello?"
-  },
-  {
-    "id": "rJFEzc56U",
-    "from": "alice",
-    "text": "eY"
-  },
-  {
-    "id": "B1IHfcc6U",
-    "from": "alice",
-    "text": "THNS"
+    "id": "r1FFqgi68",
+    "from": "charlie",
+    "text": "Whats up?"
   }
 ]

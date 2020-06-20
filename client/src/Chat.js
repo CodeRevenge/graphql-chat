@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { addMessage, getMessages } from "./graphql/queries";
+import { addMessage, getMessages, onMessageAdded } from "./graphql/queries";
 import MessageInput from "./MessageInput";
 import MessageList from "./MessageList";
 
@@ -7,16 +7,25 @@ const Chat = ({ user }) => {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
+    let subscription;
     const getData = async () => {
       const serverMessages = await getMessages();
       setMessages(serverMessages);
+      subscription = onMessageAdded((message) => {
+        setMessages(messages.concat(message));
+      });
     };
     getData();
-  }, []);
+
+    return () => {
+      if (subscription) {
+        subscription.unsubscribe();
+      }
+    };
+  });
 
   const handleSend = async (text) => {
-    const message = await addMessage(text);
-    setMessages(messages.concat(message));
+    await addMessage(text);
   };
 
   return (
