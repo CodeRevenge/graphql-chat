@@ -22,7 +22,7 @@ const Chat = ({ user }) => {
         subscription.unsubscribe();
       }
     };
-  });
+  }, [messages]);
 
   const handleSend = async (text) => {
     await addMessage(text);
