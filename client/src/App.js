@@ -1,5 +1,7 @@
+import { ApolloProvider } from "@apollo/react-hooks";
 import React, { useState } from "react";
 import { getLoggedInUser, logout } from "./auth";
+import client from "./graphql/client";
 import Chat from "./Chat";
 import Login from "./Login";
 import NavBar from "./NavBar";
@@ -17,13 +19,13 @@ const App = () => {
   };
 
   if (!user) {
-    return <Login onLogin={(user) => handleLogin(user)} />;
+    return <Login onLogin={handleLogin} />;
   }
   return (
-    <div>
+    <ApolloProvider client={client}>
       <NavBar onLogout={() => handleLogout()} />
       <Chat user={user} />
-    </div>
+    </ApolloProvider>
   );
 };
 
